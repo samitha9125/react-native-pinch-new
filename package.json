@@ -1,6 +1,6 @@
 {
-  "name": "react-native-pinch",
-  "version": "0.1.0",
+  "name": "react-native-pinch-new",
+  "version": "0.1.1",
   "description": "React Native fetch with SSL Pinning support",
   "main": "index.js",
   "scripts": {
@@ -8,21 +8,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/localz/react-native-pinch"
+    "url": "https://github.com/samitha9125/react-native-pinch-new"
   },
   "keywords": [
     "react-native",
     "ios",
     "android",
     "SSL",
+    "SSL-Pinning",
     "Network"
   ],
-  "author": "Localz",
+  "authors": "Localz, Samitha9125",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/localz/react-native-pinch/issues"
+    "url": "https://github.com/samitha9125/react-native-pinch-new/issues"
   },
-  "homepage": "https://github.com/localz/react-native-pinch#readme",
+  "homepage": "https://github.com/samitha9125/react-native-pinch-new#readme",
   "devDependencies": {
     "react": "15.3.2",
     "react-native": "^0.34"
