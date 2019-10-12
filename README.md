@@ -1,4 +1,4 @@
-This library is created because currently react-native-pinch library is not maintaining actively. Also this library support HTTP with HTTPS. 
+This library is created because currently react-native-pinch library is not maintaining actively. Also this library supports HTTP and HTTPS. 
 
 
 # Pinch 👌
