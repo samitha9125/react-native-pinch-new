@@ -1,3 +1,6 @@
+This library is created because currently react-native-pinch library is not maintaining actively. Also this library supports HTTP and HTTPS. 
+
+
 # Pinch 👌
 
 Callback and promise based HTTP client that supports SSL pinning for React Native.
@@ -161,6 +164,8 @@ pinch.fetch('https://my-api.com/v1/endpoint', {
 ```
 
 ### Skipping validation
+
+In original library, android did not support http. In order to achieve this, you only need to pass a valid http url.
 
 ```javascript
 import pinch from 'react-native-pinch';
