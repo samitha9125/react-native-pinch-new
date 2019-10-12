@@ -38,7 +38,7 @@ rnpm link react-native-pinch
 ### iOS (via Cocoa Pods)
 Add the following line to your build targets in your `Podfile`
 
-`pod 'RNPinch', :path => '../node_modules/react-native-pinch'`
+`pod 'react-native-pinch-new', :path => '../node_modules/react-native-pinch-new'`
 
 Then run `pod install`
 
