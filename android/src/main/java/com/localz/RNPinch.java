@@ -28,6 +28,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.net.ConnectException;
+import java.net.UnknownHostException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -123,18 +125,16 @@ public class RNPinch extends ReactContextBaseJavaModule {
                 response.putMap("headers", httpResponse.headers);
 
                 return response;
-            }ccatch(SocketTimeoutException STE){
+            }catch(SocketTimeoutException STE){
                 WritableMap er = Arguments.createMap();
                 er.putString("message", "The request timed out.");
                 er.putInt("code", -1001);
                 return er;
-            }
             }catch(ConnectException | UnknownHostException Ex){
                 WritableMap er = Arguments.createMap();
                 er.putString("message", Ex.toString());
                 er.putInt("code", -1003);
                 return er;
-            }
             }
             catch(JSONException | IOException | UnexpectedNativeTypeException | KeyStoreException | CertificateException | KeyManagementException | NoSuchAlgorithmException e) {
                 WritableMap error = Arguments.createMap();
