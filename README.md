@@ -60,7 +60,7 @@ dependencies {
 ...
 include ':app'
 + include ':react-native-pinch'
-+ project(':react-native-pinch').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pinch/android')
++ project(':react-native-pinch').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pinch-new/android')
 ```
 
 #### With React Native 0.29+
