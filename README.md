@@ -115,7 +115,7 @@ Before you can make requests using SSL pinning, you first need to add your `.cer
 
 ### iOS
 
- - Place your `.cer` files in your iOS Project. Don't forget to add them in your `Build Phases > Copy Bundle Resources`, in Xcode.
+ - Place your `.der` files in your iOS Project. Don't forget to add them in your `Build Phases > Copy Bundle Resources`, in Xcode.
 
 
 ## Example
