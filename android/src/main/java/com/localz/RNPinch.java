@@ -139,7 +139,7 @@ public class RNPinch extends ReactContextBaseJavaModule {
             catch(JSONException | IOException | UnexpectedNativeTypeException | KeyStoreException | CertificateException | KeyManagementException | NoSuchAlgorithmException e) {
                 WritableMap error = Arguments.createMap();
                 error.putString("message", e.toString());
-                error.putString("code", -998);
+                error.putInt("code", -998);
                 return error;
             }
         }
