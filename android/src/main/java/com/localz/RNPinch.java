@@ -137,10 +137,10 @@ public class RNPinch extends ReactContextBaseJavaModule {
                 return er;
             }
             catch(JSONException | IOException | UnexpectedNativeTypeException | KeyStoreException | CertificateException | KeyManagementException | NoSuchAlgorithmException e) {
-                WritableMap error = Arguments.createMap();
-                error.putString("message", e.toString());
-                error.putInt("code", -998);
-                return error;
+                WritableMap er = Arguments.createMap();
+                er.putString("message", e.toString());
+                er.putInt("code", -998);
+                return er;
             }
         }
 
@@ -148,7 +148,7 @@ public class RNPinch extends ReactContextBaseJavaModule {
         protected void onPostExecute(WritableMap response) {
 
             if (response.hasKey("message")) {
-                callback.invoke(response.getString("message"), null);
+                callback.invoke(response, null);
             } else {
                 callback.invoke(null, response);
             }
