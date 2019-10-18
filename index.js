@@ -7,7 +7,7 @@ var RNPinch = {
     fetch: function (url, obj, callback) {
         var deferred = Q.defer();
         NativeModules.RNPinch.fetch(url, obj, (err, res) => {
-
+            //var err = {...err};
             if (err) {
                 switch (getKeyByValue(err.code)) {
                     case 'kCFURLErrorTimedOut':
