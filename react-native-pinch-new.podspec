@@ -1,6 +1,6 @@
 require 'json'
 
-package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+package = JSON.parse(File.read(File.join(__dir__, './package.json')))
 
 Pod::Spec.new do |s|
   s.name         = package['name']
@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.platform     = :ios, "9.0"
 
-  s.source       = { :git => "https://github.com/samitha9125/react-native-pinch-new.git", :tag => "v#{s.version}" }
-  s.source_files  = "ios/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/samitha9125/react-native-pinch-new.git", :tag => "master" }
+  s.source_files  = "RNPinch/*.{h,m}"
 
   s.dependency 'React'
 end
