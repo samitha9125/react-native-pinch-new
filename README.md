@@ -1,7 +1,6 @@
 This library is created because currently react-native-pinch library is not maintaining actively. Also this library supports HTTP and HTTPS. 
 
-
-# Pinch 👌
+# React Native Pinch New 👌
 
 Callback and promise based HTTP client that supports SSL pinning for React Native.
 
@@ -9,20 +8,21 @@ Callback and promise based HTTP client that supports SSL pinning for React Nativ
 
 Using NPM:
 ```
-npm install react-native-pinch
+npm install react-native-pinch-new
 ```
 
 Using Yarn:
 ```
-yarn add react-native-pinch
+yarn add react-native-pinch-new
 ```
+## Supports the new Autolinking
 
-## Automatically link
+## Automatically link (Only recommended when autolinking failed)
 
 #### With React Native 0.27+
 
 ```shell
-react-native link react-native-pinch
+react-native link react-native-pinch-new
 ```
 
 #### With older versions of React Native
@@ -30,7 +30,7 @@ react-native link react-native-pinch
 You need [`rnpm`](https://github.com/rnpm/rnpm) (`npm install -g rnpm`)
 
 ```shell
-rnpm link react-native-pinch
+rnpm link react-native-pinch-new
 ```
 
 ## Manually link
@@ -125,7 +125,7 @@ Requests can be made by using the `fetch(url[, config, [callback]])` method of P
 
 ### Using Promises
 ```javascript
-import pinch from 'react-native-pinch';
+import pinch from 'react-native-pinch-new';
 
 pinch.fetch('https://my-api.com/v1/endpoint', {
   method: 'post',
@@ -143,7 +143,7 @@ pinch.fetch('https://my-api.com/v1/endpoint', {
 
 ### Using Callbacks
 ```javascript
-import pinch from 'react-native-pinch';
+import pinch from 'react-native-pinch-new';
 
 pinch.fetch('https://my-api.com/v1/endpoint', {
   method: 'post',
@@ -168,7 +168,7 @@ pinch.fetch('https://my-api.com/v1/endpoint', {
 In original library, android did not support http. In order to achieve this, you only need to pass a valid http url.
 
 ```javascript
-import pinch from 'react-native-pinch';
+import pinch from 'react-native-pinch-new';
 
 pinch.fetch('https://my-api.com/v1/endpoint', {
   method: 'post',
@@ -199,7 +199,7 @@ pinch.fetch('https://my-api.com/v1/endpoint', {
 Using [fetch-mock](http://www.wheresrhys.co.uk/fetch-mock/) here, but nock or any other fetch polyfill would work.
 
 ```js
-# __mocks__/react-native-pinch.js
+# __mocks__/react-native-pinch-new.js
 import fetchMock from 'fetch-mock'; 
 
 export default {
@@ -211,11 +211,11 @@ export default {
 # __tests__/store.js
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import pinch from 'react-native-pinch'; // actually the sandbox from fetch-mock
+import pinch from 'react-native-pinch-new'; // actually the sandbox from fetch-mock
 
 import { fetchFoos } from './path/to/store/actions';
 
-jest.mock('react-native-pinch');
+jest.mock('react-native-pinch-new');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
