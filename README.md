@@ -175,6 +175,7 @@ pinch.fetch('https://my-api.com/v1/endpoint', {
   headers: { customHeader: 'customValue' },
   body: '{"firstName": "Jake", "lastName": "Moxey"}',
   timeoutInterval: 10000 // timeout after 10 seconds
+  ignore_ssl:true, // This can be used to ignore SSL pinning
   sslPinning: {} // omit the `cert` or `certs` key, `sslPinning` can be ommited as well
 })
 ```
