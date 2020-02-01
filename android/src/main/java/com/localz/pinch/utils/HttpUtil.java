@@ -82,13 +82,16 @@ public class HttpUtil {
         URL url = new URL(request.endpoint);
         String method = request.method.toUpperCase();
 
-        if(request.endpoint.startsWith("https")) {
+        if(request.endpoint.startsWith("https") && !request.ignore_ssl) {
             HttpsURLConnection httpsConnection = (HttpsURLConnection) url.openConnection();
             if (request.certFilenames != null && request.certFilenames.length > 0) {
                 httpsConnection.setSSLSocketFactory(KeyPinStoreUtil.getInstance(request.certFilenames).getContext().getSocketFactory());
             }
             connection = httpsConnection;
-        } else {
+        } else if(request.endpoint.startsWith("https") && request.ignore_ssl) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) url.openConnection();
+            connection = httpsConnection;
+        }else{
             connection = (HttpURLConnection) url.openConnection();
         }
         connection.setRequestMethod(method);

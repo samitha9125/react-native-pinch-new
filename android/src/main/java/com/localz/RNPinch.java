@@ -40,6 +40,7 @@ public class RNPinch extends ReactContextBaseJavaModule {
     private static final String OPT_METHOD_KEY = "method";
     private static final String OPT_HEADER_KEY = "headers";
     private static final String OPT_BODY_KEY = "body";
+    private static final String OPT_IGNORE_SSL_KEY = "ignore_ssl";
     private static final String OPT_SSL_PINNING_KEY = "sslPinning";
     private static final String OPT_TIMEOUT_KEY = "timeoutInterval";
 
@@ -90,6 +91,7 @@ public class RNPinch extends ReactContextBaseJavaModule {
             try {
                 WritableMap response = Arguments.createMap();
                 HttpRequest request = new HttpRequest(endpoint[0]);
+                Boolean ignoressl = false;
 
                 if (opts.hasKey(OPT_BODY_KEY)) {
                     request.body = opts.getString(OPT_BODY_KEY);
@@ -100,7 +102,11 @@ public class RNPinch extends ReactContextBaseJavaModule {
                 if (opts.hasKey(OPT_HEADER_KEY)) {
                     request.headers = JsonUtil.convertReadableMapToJson(opts.getMap(OPT_HEADER_KEY));
                 }
-                if (opts.hasKey(OPT_SSL_PINNING_KEY)) {
+                if (opts.hasKey(OPT_IGNORE_SSL_KEY)) {
+                    ignoressl = opts.getBoolean(OPT_IGNORE_SSL_KEY);
+                    request.ignore_ssl = opts.getBoolean(OPT_IGNORE_SSL_KEY);
+                }
+                if (opts.hasKey(OPT_SSL_PINNING_KEY) && !ignoressl) {
                     if (opts.getMap(OPT_SSL_PINNING_KEY).hasKey("cert")) {
                         String fileName = opts.getMap(OPT_SSL_PINNING_KEY).getString("cert");
                         request.certFilenames = new String[]{fileName};

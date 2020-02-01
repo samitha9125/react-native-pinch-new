@@ -132,10 +132,10 @@ RCT_EXPORT_METHOD(fetch:(NSString *)url obj:(NSDictionary *)obj callback:(RCTRes
             [request setHTTPBody:data];
         }
     }
-    if (obj && obj[@"sslPinning"] && obj[@"sslPinning"][@"cert"]) {
+    if (obj && obj[@"ignore_ssl"] && ![[obj objectForKey:@"ignore_ssl"] boolValue] &&  obj[@"sslPinning"] && obj[@"sslPinning"][@"cert"]) {
         NSURLSessionSSLPinningDelegate *delegate = [[NSURLSessionSSLPinningDelegate alloc] initWithCertNames:@[obj[@"sslPinning"][@"cert"]]];
         session = [NSURLSession sessionWithConfiguration:self.sessionConfig delegate:delegate delegateQueue:[NSOperationQueue mainQueue]];
-    } else if (obj && obj[@"sslPinning"] && obj[@"sslPinning"][@"certs"]) {
+    } else if (obj && obj[@"ignore_ssl"] && ![[obj objectForKey:@"ignore_ssl"] boolValue] && obj[@"sslPinning"] && obj[@"sslPinning"][@"certs"]) {
         // load all certs
         NSURLSessionSSLPinningDelegate *delegate = [[NSURLSessionSSLPinningDelegate alloc] initWithCertNames:obj[@"sslPinning"][@"certs"]];
         session = [NSURLSession sessionWithConfiguration:self.sessionConfig delegate:delegate delegateQueue:[NSOperationQueue mainQueue]];

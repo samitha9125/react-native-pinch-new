@@ -7,6 +7,7 @@ public class HttpRequest {
     public String method;
     public JSONObject headers;
     public String body;
+    public Boolean ignore_ssl;
     public String[] certFilenames;
     public int timeout;
 
