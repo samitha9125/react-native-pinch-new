@@ -25,12 +25,17 @@ import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class HttpUtil {
     private static final String DEFAULT_CONTENT_TYPE = "application/json";
@@ -89,7 +94,17 @@ public class HttpUtil {
             }
             connection = httpsConnection;
         } else if(request.endpoint.startsWith("https") && request.ignore_ssl) {
+            TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+                public X509Certificate[] getAcceptedIssuers() { return null; }
+                public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+                public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+            } };
+
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new SecureRandom());
+
             HttpsURLConnection httpsConnection = (HttpsURLConnection) url.openConnection();
+            httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
             connection = httpsConnection;
         }else{
             connection = (HttpURLConnection) url.openConnection();
